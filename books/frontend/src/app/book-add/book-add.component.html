@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Book Title</label>
+        <input type="text" class="form-control" formControlName="BookTitle" #BookTitle />
+      </div>
+      <div
+        *ngIf="angForm.controls['BookTitle'].invalid && (angForm.controls['BookTitle'].dirty || angForm.controls['BookTitle'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['BookTitle'].errors.required">
+          Book Title is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Book Author</label>
+        <input type="text" class="form-control" formControlName="BookAuthor" #BookAuthor />
+      </div>
+      <div
+        *ngIf="angForm.controls['BookAuthor'].invalid && (angForm.controls['BookAuthor'].dirty || angForm.controls['BookAuthor'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['BookAuthor'].errors.required">
+          Book Author is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Book Description</label>
+        <textarea class="form-control" rows=7 cols="5" formControlName="BookDescription" #BookDescription></textarea>
+      </div>
+      <div
+        *ngIf="angForm.controls['BookDescription'].invalid && (angForm.controls['BookDescription'].dirty || angForm.controls['BookDescription'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['BookDescription'].errors.required">
+          Book Description is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Book Pages</label>
+        <input type="text" class="form-control" formControlName="BookPages" #BookPages />
+      </div>
+      <div
+        *ngIf="angForm.controls['BookPages'].invalid && (angForm.controls['BookPages'].dirty || angForm.controls['BookPages'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['BookPages'].errors.required">
+          Book Pages is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Book ISBN</label>
+        <input type="text" class="form-control" formControlName="BookISBN" #BookISBN />
+      </div>
+      <div
+        *ngIf="angForm.controls['BookISBN'].invalid && (angForm.controls['BookISBN'].dirty || angForm.controls['BookISBN'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['BookISBN'].errors.required">
+          Book ISBN is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          (click)="addBook(BookTitle.value, BookAuthor.value, BookDescription.value, BookPages.value, BookISBN.value)"
+          type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">
+          Create Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
